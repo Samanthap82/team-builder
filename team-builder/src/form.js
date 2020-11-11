@@ -5,9 +5,26 @@ export default function Form(props){
 }
 
 
+ // 🔥 STEP 6 - IMPLEMENT the change handler for our inputs and dropdown
+    // a) pull the name of the input from the event object
+    // b) pull the value of the input from the event object
 
-
-
+    // c) use the `update` callback coming in through props
+const onChange = (evt) => {
+    // part a and b 
+    const {name, value} = evt.target; 
+    // part c
+    update(name,value);
+};
+ // 🔥 STEP 7 - IMPLEMENT the submit handler
+    // a) don't allow the browser to reload!
+    // / b) use the `submit` callback coming in through props
+    const onSubmit = (evt) => {
+        // step a
+        evt.preventDefault();
+        // step b
+        submit();
+    };
 
 return(
 <form className="form container" onSubmit={onSubmit}>
@@ -50,6 +67,9 @@ maxLength="30"
             <option value="Damage">Damge</option>
         </select>
     </label>
+<div className="submit">
+    <button>submit</button>
+</div>
 </div>
 </form>
 );
